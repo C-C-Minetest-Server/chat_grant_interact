@@ -27,6 +27,7 @@ read_globals = {
 
     "logging",
     "teacher",
+    "temp_password",
 
     table = {
         fields = {

@@ -43,8 +43,12 @@ minetest.register_on_joinplayer(function(player)
 
         if chat_grant_interact.TEACHER_ENABLED then
             -- If teacher exists, show tutorial
-            -- Forcely renew unlock time
-            teacher.unlock_and_show(player, "chat_grant_interact:chat_grant_interact", nil, true)
+
+            if not minetest.global_exists("temp_password") or not temp_password.is_using_temporary_password(name) then
+                -- Don't override temp password formspec
+                -- Forcely renew unlock time
+                teacher.unlock_and_show(player, "chat_grant_interact:chat_grant_interact", nil, true)
+            end
         end
 
         -- Send a notice to the player
