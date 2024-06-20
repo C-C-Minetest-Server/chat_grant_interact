@@ -28,6 +28,7 @@ read_globals = {
     "logging",
     "teacher",
     "temp_password",
+    "beerchat",
 
     table = {
         fields = {

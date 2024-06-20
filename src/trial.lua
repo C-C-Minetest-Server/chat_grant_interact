@@ -56,7 +56,11 @@ minetest.register_on_joinplayer(function(player)
     end
 end)
 
-minetest.register_on_chat_message(function(name, message)
+local register_on_chat_message =
+    minetest.global_exists("beerchat")
+    and beerchat.register_on_chat_message
+    or minetest.register_on_chat_message
+register_on_chat_message(function(name, message)
     if string.sub(message, 1, 1) == "/" then return end
 
     local player = minetest.get_player_by_name(name)
